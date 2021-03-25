@@ -1,0 +1,158 @@
+<?php include 'phpfiles/Header.php' ?>
+
+    <body>
+
+
+        <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel" class="right-panel">
+
+            <!-- Header-->
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Staff </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Management</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3">
+
+                <!-- <div class="col-sm-12">
+                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div> -->
+
+
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                                <a href="employstaff.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="employstaff.html">
+                                    <h2>New Staff</h2>
+                                </a>
+                                <p>Employ new staff to school</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-history"></i>
+                                </div>
+                                <a href="staffhistory.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="staffhistory.html">
+                                    <h2>Staff History</h2>
+                                </a>
+                                <p>Send messages to parent of a student</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-history"></i>
+                                </div>
+                                <a href="staffhistory.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="staffhistory.html">
+                                    <h2>Performance Review</h2>
+                                </a>
+                                <p>Rate Teacher Performance (By Teachers & Parents)</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- .content -->
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+
+        <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+        <script src="assets/js/dashboard.js"></script>
+        <script src="assets/js/widgets.js"></script>
+        <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script>
+            (function($) {
+                "use strict";
+
+                jQuery('#vmap').vectorMap({
+                    map: 'world_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#1de9b6',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#1de9b6', '#03a9f5'],
+                    normalizeFunction: 'polynomial'
+                });
+            })(jQuery);
+        </script>
+
+    </body>
+
+</html>

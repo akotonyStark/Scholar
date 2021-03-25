@@ -1,0 +1,261 @@
+<?php include 'phpfiles/Header.php' ?>
+    <style>
+        #toInbox,
+        #toCompose {
+            cursor: pointer;
+            box-shadow: 3px 5px 8px rgba(0, 0, 0, .075);
+            padding: 5px;
+            color: #fff;
+            background: #e74c3c;
+            border-radius: 20px;
+        }
+        
+        .date {
+            font-size: 13px;
+        }
+        
+        #toInbox:hover,
+        #toCompose:hover {
+            opacity: 0.9;
+            border-radius: 20px;
+        }
+        
+        table tr:hover {
+            box-shadow: 3px 5px 8px rgba(0, 0, 0, .075);
+            /* background: whitesmoke; */
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .actionHolder {
+            display: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .actionHolder i {
+            padding: 0;
+            margin: 0;
+        }
+        
+        table tr:hover .date {
+            display: none;
+            width: 0;
+        }
+        
+        table tr:hover .actionHolder {
+            display: block;
+        }
+        
+        #back {
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+            background: #e74c3c;
+            border-radius: 50%;
+            margin: 10px 0px 0px 20px;
+        }
+        
+        .messagecontainer {
+            box-shadow: 3px 5px 8px rgba(0, 0, 0, .075);
+            width: 100%;
+            height: auto;
+            background: #fff;
+            padding: 10px 20px 10px 20px;
+        }
+        
+        .img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .messagecontainer p {
+            text-align: justify;
+        }
+        
+        .replyholder {
+            position: absolute;
+            top: 50px;
+            right: 25px;
+        }
+        
+        #messagetxt {
+            resize: none;
+            margin: 5px 0;
+            margin-bottom: 10px;
+        }
+        
+        #send_replyBtn {
+            float: right;
+        }
+    </style>
+
+    <body onload="loadInboxMessages('<?php echo $userId?>')">
+
+
+ <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel " class="right-panel ">
+
+            <!-- Header-->
+            
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Mailbox</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Welcome, <label id='username'>username</label></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div hidden class="content mt-3" id="composecontent">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title" id="toInbox"><i class="fa fa-envelope"></i>Inbox</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-12 col-md-12">
+                                <select name="selectSm" id="sendTo" class="form-control-sm form-control">
+                                    <option value="" disabled selected >Send To</option>
+                                    <?php if($userLevel !="1"){ ?>
+                                    <option value="1">Administration</option>
+                                    <?php }?>
+                                    
+                                    <option value="3">Staff</option>
+                                    <option value="2">Student</option>
+                                    <option value="4">Parent</option>
+                                </select>
+                                <input hidden type="text" name="" id="setSendTo" class="setSendTo">
+                                <input hidden type="text" value="<?php echo $userId?>" id="userid">
+
+
+                            </div><br><br>
+
+                            <div class="col-12 col-md-12" id="getList">
+                                <select data-placeholder="Select name(s)" multiple class="standardSelect" id="standardSelect">
+                                </select>
+                            </div><br><br>
+                          
+                            <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" id="title" placeholder="Title" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-12 textArea">
+                                <textarea id="messagetxt" rows="7" placeholder="Content..." class="form-control messagetxt"></textarea>
+                            </div>
+                            <div class="col-6 col-md-6">
+                                <button type="submit" class="btn btn-primary btn-sm" onclick="sendMessage()">
+                                    Send
+                                </button>
+                                <?php if($userLevel =="1"){ ?>
+                                <input type="checkbox" name="" id="sentToAll" value="">
+                                <span>Sent to all </span> <span id="all"></span>
+                                <?php }?>
+                            </div>
+                            <div class="col-6 col-md-6 right">
+                               <i class="fa fa-paperclip" aria-hidden="true" style="float: right;transform: rotate(40deg)"></i>
+                               
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="content mt-3 wrapper" id="messagescontent">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title" id="toCompose"><i class="fa fa-plus"></i> Compose</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+        <!-- .content -->
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
+
+        <script src="assets/js/mailbox.js?v=12"></script>
+
+         <script src="assets/loadingoverlay.js"></script>
+        <script src="vendors/chosen/chosen.jquery.min.js"></script>
+
+
+        <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+        <script src="vendors/jszip/dist/jszip.min.js"></script>
+        <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+        <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                var uname = localStorage.getItem("username");
+                $('#username').text(uname);
+
+
+               
+        
+            });
+        </script>
+
+
+
+    </html>

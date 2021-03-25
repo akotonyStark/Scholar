@@ -1,0 +1,115 @@
+<?php include 'phpfiles/Header.php' ?>
+
+    <body onload="classList()">
+
+
+        <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel " class="right-panel ">
+
+            <!-- Header-->
+            
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Dashboard</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Welcome, <label id='username'>username</label></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3" id="composecontent">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title" id="toInbox"><i class="fa fa-envelope"></i>Inbox</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-12 col-md-12">
+                                <select onchange="getParents()" name="selectSm" id="selectClass" class="form-control-sm form-control">
+                                    <option value="">Select Class</option>
+                                   
+                                </select>
+                                <input hidden type="text" name="" id="setSendTo" class="setSendTo">
+                                <input hidden type="text" value="<?php echo $userId?>" id="userid">
+
+
+                            </div><br><br>
+
+                            <div class="col-12 col-md-12" id="getList">
+                                <select data-placeholder="Select name(s)" multiple class="standardSelect" id="standardSelect">
+                                </select>
+                            </div><br><br>
+
+                            <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" id="title" placeholder="Title" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-12 textArea">
+                                <textarea id="messagetxt" rows="7" placeholder="Content..." class="form-control messagetxt"></textarea>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <button type="submit" class="btn btn-primary btn-sm" onclick="sendMessage()">
+                                    Send
+                                </button>
+                                <?php if($userLevel =="1"){ ?>
+                                <input type="checkbox" name="" id="sentToAll" value="">
+                                <span>Sent to all </span> <span id="all"></span>
+                                <?php }?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- .content -->
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+          <script src="assets/js/app.js"></script>
+        <script src="assets/loadingoverlay.js"></script>
+      
+        <script src="vendors/chosen/chosen.jquery.min.js"></script>
+        <script src="assets/js/Contactparent.js"></script>
+
+
+
+
+        
+            
+
+    </body>
+
+    </html>

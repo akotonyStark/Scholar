@@ -1,0 +1,554 @@
+<?php include 'phpfiles/Header.php' ?>
+ <style>
+            input[type=text] {
+                height: 30px;
+            }
+            
+            input[type=date] {
+                height: 30px;
+            }
+            
+            input[type=email] {
+                height: 30px;
+            }
+            
+            .select-css {
+                display: block;
+                font-size: 14px;
+                font-family: sans-serif;
+                font-weight: 700;
+                color: #444;
+                line-height: 1.3;
+                padding: .6em 1.4em .5em .8em;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+                border: 1px solid #aaa;
+                box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+                border-radius: .5em;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+                background-color: #fff;
+                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+                background-repeat: no-repeat, repeat;
+                background-position: right .7em top 50%, 0 0;
+                background-size: .65em auto, 100%;
+            }
+</style>
+    <body onload="// getSubjectList()">
+
+
+         <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel " class="right-panel ">
+
+            <!-- Header-->
+            
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Staff </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Welcome, <label id='username'>username</label></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3">
+
+
+                <div id='grid'></div>
+                <input type='text' hidden id='staffUniqueId' placeholder='id goes here' />
+
+
+            </div>
+
+            <!-- .content -->
+            <!-- modal buttons -->
+            <button type="button" hidden id='staticModalbtn' class="btn btn-secondary mb-1" data-toggle="modal" data-target="#staticModal">
+            Static
+        </button>
+            <button type="button" hidden id='staticModalbtn2' class="btn btn-secondary mb-1" data-toggle="modal" data-target="#staticModal2">
+            Static
+        </button>
+            <button type="button" hidden id='staticModalbtn3' class="btn btn-secondary mb-1" data-toggle="modal" data-target="#staticModal3">
+            Static
+        </button>
+
+            <!--modals-->
+            <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" width="70%">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a class="navbar-brand " href="home.html"><i class="menu-icon fa fa-graduation-cap"></i></a>
+                            <h5 class="modal-title" id="staticModalLabel">Staff Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <form id="enrollStaffForm" method='post' enctype='multipart/form-data'>
+                            <div class="modal-body">
+                                <div class="col-lg-4">
+
+                                    <div class="form-group">
+                                        <label for="fname" class=" form-control-label">First Name</label><i class="text-danger">*</i>
+                                        <input type="text" id='fname1' name="fname" placeholder="First name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lname" class=" form-control-label">Last Name</label><i class="text-danger">*</i>
+                                        <input type="text" id='lname1' name="lname" placeholder="Last name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender" class=" form-control-label">Gender</label><i class="text-danger">*</i>
+                                        <select class="select-css" id='gender1' name="gender" class="form-control">
+                                        <option selected value="" >Select Gender</option>
+                                        <option value='Male'>Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class=" form-control-label">Email</label><i class="text-danger">*</i>
+                                        <input type="email" id='email1' name="email" placeholder="someone@example.com" class="form-control">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="mname" class=" form-control-label">Middle Name</label><i class="text-danger"></i>
+                                        <input type="text" id='mname1' name="mname" placeholder="Middle name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dob" class=" form-control-label">Date of Birth</label><i class="text-danger">*</i>
+                                        <input type="date" id='dob1' name="dob" placeholder="dd-mm-yyyy" class="form-control">
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <label for="contact" class=" form-control-label">Contact</label><i class="text-danger">*</i>
+                                        <input type="text" id='contact1' name="contact" placeholder="Contact" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="department" class=" form-control-label">Department</label><i class="text-danger">*</i>
+                                        <select class="select-css" id='department1' name="department" class="form-control">
+                                            <option selected  >Select Department</option>
+                                            <option value="Teaching Staff">Teaching Staff</option>
+                                            <option value="Non Teaching Staff">Non Teaching Staff</option>
+                                    </select>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class=" form-group">
+                                        <label for="studImg" class=" form-control-label">Select Picture</label>
+                                        <input type="file" onchange="checkimage(); readURL(this);" id="file" name='file' id='studImg' />
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <img class="" id='profileimage' src="images/default.jpg" alt='Profile Picture' style="border:1px solid black; width: 200px; height: 200px;" />
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger cancel" data-dismiss="modal">Cancel</button>
+                                <button type="submit" name="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- edit modal -->
+            <div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" width="70%">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <a class="navbar-brand " href="home.html"><i class="menu-icon fa fa-graduation-cap"></i></a>
+                            <h5 class="modal-title" id="staticModalLabel">Staff Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <form id="editStaffForm" method='post' enctype='multipart/form-data'>
+                            <div class="modal-body">
+                                <div class="col-lg-4">
+                                    <input type="text" hidden name="StaffId" id="StaffId" placeholder="StaffId" class="form-control">
+                                    <div class="form-group">
+                                        <label for="fname" class=" form-control-label">First Name</label><i class="text-danger">*</i>
+                                        <input type="text" name="fname" id="fname" placeholder="First name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lname" class=" form-control-label">Last Name</label><i class="text-danger">*</i>
+                                        <input type="text" name="lname" id="lname" placeholder="Last name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender" class=" form-control-label">Gender</label><i class="text-danger">*</i>
+                                        <select class="select-css" name="gender" id="gender" class="form-control">
+                                        <option selected disabled>Select Gender</option>
+                                        <option value='Male'>Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email" class=" form-control-label">Email</label><i class="text-danger">*</i>
+                                        <input type="email" name="email" id="email" placeholder="someone@example.com" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender" class=" form-control-label">Subects Assigned</label><i class="text-danger">*</i>
+                                      
+                                        <div class="subjectList">
+                                            <select class="standardSelect form-control" multiple id="standardSelect" name="subjectList" id="subjectList">
+                                                                                     
+                                        </select>
+                                         <input hidden type="text" name="Subjects[]" id="setSubjects" class="setSubjects">
+                                        </div>
+                                        <!-- <section id="setSubject2">
+                                            <option value=""></option>
+                                        </section> -->
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="mname" class=" form-control-label">Middle Name</label><i class="text-danger"></i>
+                                        <input type="text" name="mname" id="mname" placeholder="Middle name" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dob" class=" form-control-label">Date of Birth</label><i class="text-danger">*</i>
+                                        <input type="date" name="dob" id="dob" placeholder="dd-mm-yyyy" class="form-control">
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <label for="contact" class=" form-control-label"></label>Contact</label><i class="text-danger">*</i>
+                                        <input type="text" name="contact" id="contact" placeholder="Contact" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="studLevel" class=" form-control-label">Department</label><i class="text-danger">*</i>
+                                        <select class="select-css" name="department" id="department" class="form-control">
+                                            <option selected  disabled>Select Department</option>
+                                            <option value="Teaching Staff">Teaching Staff</option>
+                                            <option value="Non Teaching Staff">Non Teaching Staff</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="form-group app">
+                                        <!-- <label for="duties" class=" form-control-label">Duties</label><i class="text-danger">*</i>
+                                        <textarea name="duties" id="duties" rows="5" placeholder="Duties..." class="form-control"></textarea> -->
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class=" form-group">
+                                        <label for="studImg" class=" form-control-label">Select Picture</label>
+                                        <input type="file" onchange="checkimage2(); readURL2(this);" id="file2" name='file' id='studImg' />
+                                    </div>
+
+                                    <div class=" form-group">
+                                        <img class="" id='profileimage2' src="images/default.jpg" alt='Profile Picture' style="border:1px solid black; width: 200px; height: 200px;" />
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger cancel" data-dismiss="modal">Cancel</button>
+                                <button type="submit" name="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- view modal -->
+            <div class="modal fade" id="staticModal3" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                            <!-- <div class="col-md-4"> -->
+                            <section class="card">
+                                <div class="twt-feed blue-bg">
+                                    <div class="corner-ribon black-ribon">
+                                        <i class="fa fa-id-card"></i>
+                                    </div>
+
+
+                                    <div class="media">
+                                        <a href="#">
+                                            <img id='viewProfilePic' class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <h2 id='viewProfileName' class="text-white display-6">Jim Doe</h2>
+                                            <span><i class="fa fa-envelope"></i></span>
+                                            <h6 id='viewProfileEmail' class="text-light"></h6>
+                                            <span><i class="fa fa-phone"></i></span>
+                                            <h6 id='viewProfileContact' class="text-light">
+                                            </h6>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="weather-category twt-category">
+                                    <ul>
+                                        <li class="active">
+                                            <h5>Department</h5>
+                                            <div id='viewDepartment'> </div>
+                                        </li>
+                                        <li>
+                                            <h5>Position</h5>
+                                            <div id='viewPosition'> </div>
+                                        </li>
+                                        <li>
+                                            <h5>Subject Assigned</h5>
+                                                <p id='ViewSubjectAssigned'> </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="twt-write col-sm-12">
+                                    <textarea id='Viewduties' placeholder="Promising student" rows="1" class="form-control t-text-area"></textarea>
+                                </div>
+                                <footer class="twt-footer">
+
+                                    <a href="#"><i class="fa fa-map-marker"></i></a> Scholar Inc.
+                                </footer>
+                            </section>
+                            <!-- </div> -->
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger cancel" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+          <script src="assets/js/app.js"></script>
+        <script src="assets/js/newstaff.js?v=v2"></script>
+
+        <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+        <script src="assets/js/dashboard.js"></script>
+        <script src="assets/js/widgets.js"></script>
+        <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+        <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+
+        <script src="vendors/chosen/chosen.jquery.min.js"></script>
+        <!-- <script src="assets/js/app.js"></script> -->
+
+
+        <script>
+            jQuery(document).ready(function() {
+                jQuery(".standardSelect").chosen({
+                    disable_search_threshold: 10,
+                    no_results_text: "Oops, nothing found!",
+                    width: "100%"
+                });
+            });
+        </script>
+
+
+        <script>
+            // showing image
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#profileimage')
+                            .attr('src', e.target.result)
+                            .width(200)
+                            .height(200);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+            }
+
+            // showing image
+            function readURL2(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#profileimage2')
+                            .attr('src', e.target.result)
+                            .width(200)
+                            .height(200);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+            }
+
+            // checking image
+
+            function checkimage() {
+                var file_data = $('#file').prop('files')[0];
+                var prop = document.getElementById('file').files[0];
+                var image = prop.name;
+                var image_size = prop.size;
+                var image_ext = image.split('.').pop().toLowerCase();
+                if (jQuery.inArray(image_ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                    // alert('Invalid image file');
+                    toastr.error('Please select a valid image file.');
+                    // $('#file').css('border', '1px solid red');
+                    // $('#alert').slideDown();
+                    // $('#profileimage').hide();
+                    $('#file').val('');
+                } else if (image_size > 5000000) {
+                    // alert('image size is too big');
+                    toastr.error('Please image size is too big');
+                    // $('#file').css('border', '1px solid red');
+                    // $('#alert').slideDown();
+                    $('#file').val('');
+
+                } else if (jQuery.inArray(image_ext, ['gif', 'png', 'jpg', 'jpeg']) != -1 && image_size <= 1500000) {
+                    // $('#response').text('');
+                    // $('#file').css('border', '1px solid green');
+                    // $('#alert').slideUp();
+                    $('#profileimage').show();
+                }
+
+            }
+
+            function checkimage2() {
+                var file_data = $('#file2').prop('files')[0];
+                var prop = document.getElementById('file2').files[0];
+                var image = prop.name;
+                var image_size = prop.size;
+                var image_ext = image.split('.').pop().toLowerCase();
+                if (jQuery.inArray(image_ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                    // alert('Invalid image file');
+                    toastr.error('Please select a valid image file.');
+                    // $('#file').css('border', '1px solid red');
+                    // $('#alert').slideDown();
+                    // $('#profileimage').hide();
+                    $('#file2').val('');
+                } else if (image_size > 5000000) {
+                    // alert('image size is too big');
+                    toastr.error('Please image size is too big');
+                    // $('#file').css('border', '1px solid red');
+                    // $('#alert').slideDown();
+                    $('#file2').val('');
+
+                } else if (jQuery.inArray(image_ext, ['gif', 'png', 'jpg', 'jpeg']) != -1 && image_size <= 1500000) {
+                    // $('#response').text('');
+                    // $('#file').css('border', '1px solid green');
+                    // $('#alert').slideUp();
+                    $('#profileimage2').show();
+                }
+
+            }
+
+            // getSubjectList = () => {
+
+            //     $.ajax({
+            //         type: "post",
+            //         url: "phpfiles/actions.php",
+            //         data: 'action=getsubjectList',
+
+            //         beforeSend: function() {
+
+            //             // console.log("mysubject loading")
+
+            //         },
+
+            //         success: function(response) {
+            //             console.log(response)
+            //             var newlist = "<option>Maths</option>";
+            //             var newlist2 = "<option>Ga</option>";
+            //             var newlist3 = "<option>Science</option>";
+            //             $('.standardSelect').append(newlist)
+
+            //             $('.standardSelect').appendTo(newlist2)
+            //             $('.subjectList').appendTo("newlist3")
+
+
+            //         },
+            //         error: function(err) {
+            //             console.log(err)
+            //         }
+            //     });
+
+            // }
+            jQuery(document).ready(function() {
+                jQuery(".standardSelect").chosen({
+                    disable_search_threshold: 10,
+                    no_results_text: "Oops, nothing found!",
+                    width: "100%"
+                }).change(function(event) {
+
+                    if (event.target == this) {
+
+
+                        var myValue = $(this).val();
+                        $('#subjectList').val(myValue)
+                    }
+
+                });
+            });
+        </script>
+
+    </body>
+
+    </html>

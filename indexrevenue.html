@@ -1,0 +1,144 @@
+<?php include 'phpfiles/Header.php' ?>
+
+    <body>
+
+
+        <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel" class="right-panel">
+
+            <!-- Header-->
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Revenue Managements </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Welcome, <label id='username'>username</label></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3">
+
+                <!-- <div class="col-sm-12">
+                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div> -->
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <a href="feepayment.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="feepayment.html">
+                                    <h2>Fees Payment</h2>
+                                </a>
+                                <p>Submit Record of Payments</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-eye"></i>
+                                </div>
+                                <a href="viewpayment.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="viewpayment.html">
+                                    <h2>View Payments</h2>
+                                </a>
+                                <p>View List of Student Payment Records</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-gear"></i>
+                                </div>
+                                <a href="addfees.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="addfees.html">
+                                    <h2>Fees Setup</h2>
+                                </a>
+                                <p>Setup various fees</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+        <!-- .content -->
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                var uname = localStorage.getItem("username");
+                $('#username').text(uname)
+            });
+        </script>
+
+    </body>
+
+    </html>

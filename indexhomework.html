@@ -1,0 +1,127 @@
+<?php include 'phpfiles/Header.php' ?>
+
+    <body>
+
+
+        <!-- Left Panel -->
+
+        <?php include 'phpfiles/Sidebar.php' ?>
+        <!-- /#left-panel -->
+
+        <!-- Left Panel -->
+
+        <!-- Right Panel -->
+
+        <div id="right-panel" class="right-panel">
+
+            <!-- Header-->
+            <?php include 'phpfiles/Navbar.php' ?>
+            <!-- /header -->
+            <!-- Header-->
+
+            <div class="breadcrumbs">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Homework </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li class="active">Welcome, <label id='username'>username</label></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3">
+
+                <!-- <div class="col-sm-12">
+                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div> -->
+
+
+
+
+
+                <!-- create homework -->
+                <?php if($userLevel == '1' || $userLevel == '3'){ ?>
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-book"></i>
+                                </div>
+                                <a href="#">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="homework.html">
+                                    <h3>Give Homework</h3>
+                                </a>
+                                <p>Upload Homework Files</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <?php }?>
+
+                <!-- view homework -->
+                <div class="col-md-4">
+                    <div class="feed-box text-center">
+                        <section class="card">
+                            <div class="card-body">
+                                <div class="corner-ribon blue-ribon">
+                                    <i class="fa fa-edit"></i>
+                                </div>
+                                <a href="homework.html">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/default.jpg">
+                                </a>
+                                <a href="viewhomework.html">
+                                    <h3>View Homeworks</h3>
+                                </a>
+                                <p>Check Home Assignments Available</a>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+        <!-- .content -->
+        </div>
+        <!-- /#right-panel -->
+
+        <!-- Right Panel -->
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+
+        <script>
+            $(document).ready(function() {
+                var uname = localStorage.getItem("username");
+                $('#username').text(uname)
+            });
+        </script>
+
+    </body>
+
+</html>
