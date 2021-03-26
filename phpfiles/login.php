@@ -66,7 +66,7 @@
 
                 else if (mysqli_num_rows($results) < 1) {
 
-                    $prompt = "Please your login credentials is incorrect.\nTry again!";
+                    $prompt = "You have entered the wrong login credentials.\n Please try again!";
                     $data[] =  array('prompt' => $prompt,'url' =>'index.html');
 
 

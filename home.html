@@ -1,188 +1,187 @@
 <?php include 'phpfiles/Header.php' ?>
 
-    <body onload="currentAnnouncement()">
+<body onload="currentAnnouncement()">
 
-        <div class="loder"></div>
-        <!-- Left Panel -->
+    <div class="loder"></div>
+    <!-- Left Panel -->
 
-        <?php include 'phpfiles/Sidebar.php' ?>
-        <!-- /#left-panel -->
+    <?php include 'phpfiles/Sidebar.php' ?>
+    <!-- /#left-panel -->
 
-        <!-- Left Panel -->
+    <!-- Left Panel -->
 
-        <!-- Right Panel -->
+    <!-- Right Panel -->
 
-        <div id="right-panel " class="right-panel ">
+    <div id="right-panel " class="right-panel ">
 
-            <!-- Header-->
-            
-            <?php include 'phpfiles/Navbar.php' ?>
-            <!-- /header -->
-            <!-- Header-->
+        <!-- Header-->
 
-            <div class="breadcrumbs">
-                <div class="col-sm-4">
-                    <div class="page-header float-left">
-                        <div class="page-title">
-                            <h1>Dashboard</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="page-header float-right">
-                        <div class="page-title">
-                            <ol class="breadcrumb text-right">
-                                <li class="active">Welcome, <label id='username'>username</label></li>
-                            </ol>
-                        </div>
+        <?php include 'phpfiles/Navbar.php' ?>
+        <!-- /header -->
+        <!-- Header-->
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Welcome, <label id='username'>username</label></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <div class="content mt-3">
+        <div class="content mt-3">
 
-                <div class="col-sm-12">
-                    <div class="alert  alert-info alert-dismissible fade show" role="alert">
-                        <span class="badge badge-pill badge-danger">Announcement</span>
-                        <span id="currentAnnouncement"></span>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <div class="col-sm-12">
+                <div class="alert  alert-info alert-dismissible fade show" role="alert">
+                    <span class="badge badge-pill badge-danger">Announcement</span>
+                    <span id="currentAnnouncement"></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
                 </div>
-                <?php if($userLevel =="1"){ ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box facebook">
-
-                        <a href="indexstudent.html"><i class="fa fa-graduation-cap"></i></a>
-                        <ul>
-                            <a href="indexstudent.html"><span>Student Management</span></a>
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box twitter">
-
-                        <a href="indexstaff.html"><i class="fa fa-group"></i></a>
-                        <ul>
-                            <a href="indexstaff.html"><span>Staff Management</span></a>
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box linkedin">
-                        <a href="indexrevenue.html"><i class="fa fa-money"></i></a>
-                        <ul>
-                            <a href="indexrevenue.html"><span>Revenue Management</span></a>
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-                <?php }?>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box google-plus">
-                        <a href="indexreports.html"><i class="fa fa-file-pdf-o"></i></a>
-                        <ul>
-                            <a href="indexreports.html"><span>School Reports</span></a>
-
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box facebook">
-                        <a href="indexmailbox.html"><i class="fa fa-envelope"></i></a>
-                        <ul>
-                            <a href="indexmailbox.html"><span>Mail Box</span></a>
-
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-
-                    <div class="social-box twitter">
-
-                        <a href="indexhomework.html"><i class="fa fa-book"></i></a>
-                        <ul>
-                            <a href="indexhomework.html"><span>Homework Portal</span></a>
-
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box linkedin">
-                        <a href="learning.html"><i class="fa fa-laptop"></i></a>
-                        <ul>
-                            <a href="learning.html"><span>Learning Portal</span></a>
-
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-                <?php if($userLevel =="1"){ ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-box google-plus">
-                        <a href="charts-chartjs.html"><i class="fa fa-line-chart"></i></a>
-                        <ul>
-                            <a href="charts-chartjs.html"><span>Analytics</span></a>
-
-                        </ul>
-                    </div>
-                    <!--/social-box-->
-                </div>
-                <?php }?>
-
-
-
             </div>
-            <!-- .content -->
+            <?php if($userLevel =="1"){ ?>
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box facebook">
+
+                    <a href="indexstudent.html"><i class="fa fa-graduation-cap"></i></a>
+                    <ul>
+                        <a href="indexstudent.html"><span>Student Management</span></a>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box twitter">
+
+                    <a href="indexstaff.html"><i class="fa fa-group"></i></a>
+                    <ul>
+                        <a href="indexstaff.html"><span>Staff Management</span></a>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box linkedin">
+                    <a href="indexrevenue.html"><i class="fa fa-money"></i></a>
+                    <ul>
+                        <a href="indexrevenue.html"><span>Revenue Management</span></a>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+            <?php }?>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box google-plus">
+                    <a href="indexreports.html"><i class="fa fa-file-pdf-o"></i></a>
+                    <ul>
+                        <a href="indexreports.html"><span>School Reports</span></a>
+
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box facebook">
+                    <a href="indexmailbox.html"><i class="fa fa-envelope"></i></a>
+                    <ul>
+                        <a href="indexmailbox.html"><span>Mail Box</span></a>
+
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="social-box twitter">
+
+                    <a href="indexhomework.html"><i class="fa fa-book"></i></a>
+                    <ul>
+                        <a href="indexhomework.html"><span>Homework Portal</span></a>
+
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box linkedin">
+                    <a href="learning.html"><i class="fa fa-laptop"></i></a>
+                    <ul>
+                        <a href="learning.html"><span>Learning Portal</span></a>
+
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+            <?php if($userLevel =="1"){ ?>
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box google-plus">
+                    <a href="charts-chartjs.html"><i class="fa fa-line-chart"></i></a>
+                    <ul>
+                        <a href="charts-chartjs.html"><span>Analytics</span></a>
+
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+            <?php }?>
+
+
+
         </div>
-        <!-- /#right-panel -->
+        <!-- .content -->
+    </div>
+    <!-- /#right-panel -->
 
-        <!-- Right Panel -->
+    <!-- Right Panel -->
 
-        <script src="vendors/jquery/dist/jquery.min.js"></script>
-        <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-        <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-         <script src="assets/loadingoverlay.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/app.js"></script>
-        
-        <script src="assets/js/home.js"></script>
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/loadingoverlay.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/home.js"></script>
 
 
-        <script>
-           
-            setInterval(currentAnnouncement = () => {
+    <script>
+        setInterval(currentAnnouncement = () => {
 
-                $.ajax({
-                    type: "post",
-                    url: "phpfiles/actions.php",
-                    data: 'action=currentAnnouncement',
-                    beforeSend: function() {
+            $.ajax({
+                type: "post",
+                url: "phpfiles/actions.php",
+                data: 'action=currentAnnouncement',
+                beforeSend: function() {
 
-                    },
-                    success: function(res) {
-                        //  console.log(res)
-                        $('#currentAnnouncement').html(res);
-                    }
+                },
+                success: function(res) {
+                    //  console.log(res)
+                    $('#currentAnnouncement').html(res);
+                }
 
-                })
+            })
 
-            }, 5000);
-        </script>
+        }, 7000);
+    </script>
 
-    </body>
+</body>
 
 </html>
